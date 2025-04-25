@@ -28,12 +28,6 @@ npm run dev
 npm run seed:users
 ```
 
-### Running Tests
-
-```bash
-npm test
-```
-
 ## Project Structure
 
 ```
@@ -55,7 +49,12 @@ seeders/               # Seeds for initial setup
 
 Create a `.env` file in the root based on the .env.example file
 
+## Documentation
+
+You can find a brief postman collection in the file "Test.postman_collection"
+
 ## Features
+
 - **Employee Listing**: View all employees and their pending evaluations.
 - **Evaluations**: Assign multiple-choice tests and auto-score answers.
 - **Reports**: Generate reports by employee or department, including scores.

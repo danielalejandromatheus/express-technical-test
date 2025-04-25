@@ -28,10 +28,11 @@ export const getEmployeeReport = async (id: string) => {
     data: {
       ...employee.toJSON(),
       evaluations: evaluationsWithScores,
-      overallScore: evaluationsWithScores.reduce(
-        (acc: number, evaluation: any) => acc + evaluation.score,
-        0
-      ),
+      mediumScore:
+        evaluationsWithScores.reduce(
+          (acc: number, evaluation: any) => acc + evaluation.score,
+          0
+        ) / evaluationsWithScores.length,
     },
   };
 };
@@ -67,11 +68,16 @@ export const getDepartmentReport = async (id: string) => {
       );
 
       return {
-        employee,
+        ...employee.toJSON(),
         evaluations: evaluationsWithScores,
+        mediumScore:
+          evaluationsWithScores.reduce(
+            (acc: number, evaluation: any) => acc + evaluation.score,
+            0
+          ) / evaluationsWithScores.length,
       };
     })
   );
 
-  return report;
+  return { data: report };
 };
