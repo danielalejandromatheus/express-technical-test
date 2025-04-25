@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { register, login, me } from 'src/controllers/auth.controller';
+import { validate } from 'src/middlewares/validate';
+import { LoginDto, RegisterDto } from 'src/entities/auth.dto';
+import authenticated from 'src/middlewares/authenticated';
+const router = Router();
+router.post('/register', validate(RegisterDto), register);
+router.post('/login', validate(LoginDto), login);
+router.get('/me', authenticated, me);
+export default router;

@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "d184be1c-03a1-4942-a256-ea1113acc95a",
+		"name": "Nolatech Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4543894"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"root@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Daniel Matheus\",\r\n    \"password\": \"123456\",\r\n    \"email\": \"dm@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "List employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employees"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "query",
+									"value": "Daniel",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "fullName",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "position",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employee by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employees/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680ae7d6ba598de9387cec14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create employees",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Daniel\",\r\n  \"lastName\": \"Matheus\",\r\n  \"email\": \"dm@example.com\",\r\n  \"phone\": \"+555555555\",\r\n  \"address\": \"My house\",\r\n  \"city\": \"Some city\",\r\n  \"state\": \"Some state\",\r\n  \"zip\": \"2005\",\r\n  \"country\": \"Venezuela\",\r\n  \"dateOfBirth\": \"1996-05-07\",\r\n  \"dateOfJoining\": \"2010-01-01\",\r\n  \"department\": \"Informatics\",\r\n  \"position\": \"Developer\",\r\n  \"salary\": 9999,\r\n  \"status\": \"active\",\r\n  \"user\": {\r\n    \"email\": \"dm@example.com\",\r\n    \"password\": \"123456\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employees",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Daniel\",\r\n  \"lastName\": \"Matheus\",\r\n  \"email\": \"dm@example.com\",\r\n  \"phone\": \"+555555555\",\r\n  \"address\": \"My house\",\r\n  \"city\": \"Some city\",\r\n  \"state\": \"Some state\",\r\n  \"zip\": \"2005\",\r\n  \"country\": \"Venezuela\",\r\n  \"dateOfBirth\": \"1996-05-07\",\r\n  \"dateOfJoining\": \"2010-01-01\",\r\n  \"department\": \"Informatics\",\r\n  \"position\": \"Developer\",\r\n  \"salary\": 9999,\r\n  \"status\": \"terminated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employees/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680ae7d6ba598de9387cec14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluations",
+			"item": [
+				{
+					"name": "List evaluations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/evaluations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"evaluations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "query",
+									"value": "Daniel",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "fullName",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "position",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get evaluation by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/evaluations/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"evaluations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680aebcd114093237e4b814a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit answers to evaluation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answers\": [\r\n        {\r\n            \"question\": \"680aec60114093237e4b8151\",\r\n            \"selected\": 0\r\n        },\r\n        {\r\n            \"question\": \"680aec6e114093237e4b8154\",\r\n            \"selected\": 1\r\n        },\r\n        {\r\n            \"question\": \"680aec72114093237e4b8157\",\r\n            \"selected\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/evaluations/:id/submit",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"evaluations",
+								":id",
+								"submit"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680aebcd114093237e4b814a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create evaluation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Evaluation\",\r\n    \"type\": \"peer\",\r\n    \"period\": \"monthly\",\r\n    \"state\" : \"draft\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/evaluations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"evaluations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update evaluation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Evaluation\",\r\n    \"type\": \"peer\",\r\n    \"period\": \"monthly\",\r\n    \"state\" : \"published\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/evaluations/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"evaluations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680aebcd114093237e4b814a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Questions",
+			"item": [
+				{
+					"name": "List questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/questions?page=1&limit=10&query=680aebcd114093237e4b814a&field=evaluation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "query",
+									"value": "680aebcd114093237e4b814a"
+								},
+								{
+									"key": "field",
+									"value": "evaluation"
+								},
+								{
+									"key": "orderBy",
+									"value": "evaluation",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get question by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/qestions/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"qestions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create questions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluation\": \"680aebcd114093237e4b814a\",\r\n    \"questions\": [\"question 1\", \"question 2\", \"question 3\"],\r\n    \"answer\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update questions",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"evaluation\": \"680aebcd114093237e4b814a\",\r\n    \"questions\": [\"question 1\", \"question 2\", \"question 3\"],\r\n    \"answer\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/questions/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680aec6e114093237e4b8154"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get Report by Department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/reports/department/:department",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports",
+								"department",
+								":department"
+							],
+							"variable": [
+								{
+									"key": "department",
+									"value": "Informatics"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report by Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/reports/employee/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports",
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODBhZTI5OWFmOTNiM2RhNzk5ODdkMGIiLCJlbWFpbCI6InJvb3RAZXhhbXBsZS5jb20iLCJuYW1lIjoiUm9vdCBVc2VyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ1NTQ3MTg1LCJleHAiOjE3NDU1NTA3ODV9.0CECJcmLkuVjxPtdxYhp-f_TXZgZ3-oVp7l-D0p9u28",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
